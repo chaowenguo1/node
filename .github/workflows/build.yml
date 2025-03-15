@@ -1,4 +1,5 @@
 on:
+    push:
     schedule:
     - cron: '0 */4 * * *'
     
@@ -33,7 +34,7 @@ jobs:
               EARNFM_TOKEN=0a981b92-0b71-44a2-bdec-eceb5d946025 ./earnfm_example & 
               sudo ln -s /lib/x86_64-linux-musl/libc.so /lib/libc.musl-x86_64.so.1
               ./configure --prefix=${{github.workspace}}/product
-              make
+              LD_LIBRARY_PATH=. make
               make install
               cd ${{github.workspace}}
               tar -cjvf node.tar.bz2 product
