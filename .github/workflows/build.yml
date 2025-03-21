@@ -35,7 +35,7 @@ jobs:
               mkdir build
               cd build
               ../configure --prefix=${{github.workspace}}/product
-              make
+              make -C ..
               make install
               cd ${{github.workspace}}
               tar -cjvf node.tar.bz2 product
