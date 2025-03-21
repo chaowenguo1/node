@@ -35,8 +35,8 @@ jobs:
               mkdir build
               cd build
               ../configure --prefix=${{github.workspace}}/product
-              ../make
-              ../make install
+              make
+              make install
               cd ${{github.workspace}}
               tar -cjvf node.tar.bz2 product
         - uses: softprops/action-gh-release@master
